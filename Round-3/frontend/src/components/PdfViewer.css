@@ -1,0 +1,82 @@
+/* PdfViewer.css */
+.pdf-page-container {
+  background: white;
+  display: inline-block;
+  position: relative;
+}
+
+.textLayer span {
+  padding: 0;
+  margin: 0;
+  white-space: pre;
+  pointer-events: auto;     /* ✅ allow mouse interactions */
+  user-select: text;        /* ✅ allow selecting text */
+  background: transparent;  /* make sure no block on selection */
+}
+
+
+.textLayer span.highlighted {
+  background: rgba(255, 255, 0, 0.6);
+  border-radius: 2px;
+}
+
+/* Highlighted text inside PDF */
+.textLayer .highlighted {
+  background-color: black   ;
+  transition: background-color 0.3s ease;
+  padding: 0 3px;
+}
+
+/* Pulse animation for the whole page container */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0px yellow; }
+  50% { box-shadow: 0 0 20px yellow; }
+  100% { box-shadow: 0 0 0px yellow; }
+}
+
+.pdf-page-container.highlight-pulse {
+  animation: pulse 1.2s ease;
+}
+
+/* Page number overlay */
+.page-number-label {
+  position: absolute;
+  bottom: 5px;        /* change to top: 5px; if you want it at the top */
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  user-select: none;
+}
+/* Add these styles to your existing PdfViewer.css file */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Smooth transition for PDF viewer width changes */
+.pdf-canvas-container {
+  transition: all 0.3s ease;
+}        
+
