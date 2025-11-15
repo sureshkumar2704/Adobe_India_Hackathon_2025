@@ -39,7 +39,7 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=str(UPLOAD_DIR)), name="uploads")
 
 # Load Gemini API key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBDvDPJfRJFXkIJd4YZoLBM_scQVgdUGHw")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
 
 # Initialize Gemini
 try:
